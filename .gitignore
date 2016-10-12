@@ -1,3 +1,6 @@
+.DS_Store
+db_recreate
+
 *.rbc
 capybara-*.html
 .rspec
