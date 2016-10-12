@@ -20,7 +20,7 @@ class PlayersController < ApplicationController
 	end
 
 	def players
-		team = Team.find_by id: params[:team_id]
+		team = Team.find params[:team_id]
 		not_found if team.nil?
 
 		players = team.players

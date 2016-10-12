@@ -33,7 +33,7 @@ team_names = [
 ]
 
 teams = []
-10.times do
+5.times do
 	teams.push Team.create(
 		{name:  [team_locations.sample, team_names.sample].join(' ')},
 	)
@@ -63,21 +63,40 @@ players_last_names = [
 ]
 
 players = []
-200.times do 
-	players.push Player.create(
-		{name: [players_first_names.sample	, players_last_names.sample].join(' '), team_id: teams.sample.id}
-	)
+50.times do 
+	players.push Player.create({
+		name: [players_first_names.sample, players_last_names.sample].join(' '),
+		team_id: teams.sample.id
+	})
 end
 
 games = []
 game_participations = []
-200.times do
-	game = Game.create(
-		{title: '', date: rand(1..1000).days.ago}
-	)
-		game_participations.push GameParticipation.create([
-		{game_id: game.id, team_id: teams.sample.id},
-		{game_id: game.id, team_id: teams.sample.id}
+50.times do
+	game = Game.create({
+		title: '',
+		date: rand(1..1000).days.ago
+	})
+	game_participations.push GameParticipation.create([
+		{
+			game_id: game.id,
+			team_id: teams.sample.id
+		},
+		{
+			game_id: game.id,
+			team_id: teams.sample.id
+		}
 	])
 	games.push game
+end
+
+500.times do
+	game = games.sample
+	team = game.teams.sample
+	play = Play.create({
+		identifier: :run,
+		game_id: game.id,
+		team_id: team.id,
+		player_id: team.players.sample.id
+	})
 end

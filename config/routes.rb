@@ -19,6 +19,7 @@ Baseball::Application.routes.draw do
     end
 
     resources :games do
+      resources :plays
     end
 
   # Example resource route with more complex sub-resources:

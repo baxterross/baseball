@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
 
+	has_many :plays
 	has_many :game_participations
 	has_many :teams, through: :game_participations
 

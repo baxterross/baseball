@@ -38,13 +38,17 @@ ActiveRecord::Schema.define(version: 20161011002024) do
   end
 
   create_table "plays", force: true do |t|
-    t.integer  "team_id"
     t.integer  "game_id"
     t.integer  "player_id"
+    t.integer  "team_id"
     t.string   "identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "plays", ["game_id"], name: "index_plays_on_game_id"
+  add_index "plays", ["player_id"], name: "index_plays_on_player_id"
+  add_index "plays", ["team_id"], name: "index_plays_on_team_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"
