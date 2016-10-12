@@ -4,6 +4,8 @@ class CreateGameParticipations < ActiveRecord::Migration
 			t.belongs_to :team, index: true
 			t.belongs_to :game, index: true
 
+			t.boolean :victorious
+
 			t.timestamps
 		end
 	end

@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20161011002024) do
   create_table "game_participations", force: true do |t|
     t.integer  "team_id"
     t.integer  "game_id"
+    t.boolean  "victorious"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -22,6 +22,10 @@ Baseball::Application.routes.draw do
       resources :plays
     end
 
+    get '/stats/teams/top_ranked' => 'teams#top_ranked'
+    get '/stats/players/top_scoring' => 'teams#top_scoring'
+    get '/stats/teams/top_ranked' => 'teams#top_ranked'
+
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
