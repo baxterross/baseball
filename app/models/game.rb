@@ -15,7 +15,16 @@ class Game < ActiveRecord::Base
 
 		json[:teams] = teams if options[:include_teams]
 
+		json[:score] = score if options[:include_score]
+
 		json
+	end
+
+	def score
+		{
+			teams[0].id => plays.where(team_id: teams[0].id).count,
+			teams[1].id => plays.where(team_id: teams[1].id).count
+		}
 	end
 
 end

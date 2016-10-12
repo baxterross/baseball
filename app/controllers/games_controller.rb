@@ -5,7 +5,7 @@ class GamesController < ApplicationController
 	end
 
 	def show
-		render json: game.as_json(include_teams: true)
+		render json: game.as_json(include_teams: true, include_score: true)
 	end
 
 	def update
@@ -20,7 +20,7 @@ class GamesController < ApplicationController
 	end
 
 	def games
-		Game.includes(:teams).all
+		Game.includes(:teams, :plays).all
 	end
 
 	def game
